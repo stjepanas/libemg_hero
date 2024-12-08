@@ -159,10 +159,10 @@ class GUI:
         redownload: bool (optional), default=False
             If True, all files will be re-downloaded (regardless if they are already downloaed).
         """
-        git_url = "https://raw.githubusercontent.com/libemg/LibEMGGestures/main/"
-        gif_folder = "GIFs/"
+        git_url = "https://raw.githubusercontent.com/libemg/LibEMGGestures/main/" #change this
+        #gif_folder = "GIFs/"
         img_folder = "Images/"
-        json_file = "gesture_list.json"
+        json_file = "gesture_list.json" #create/modify their json file
         curl_commands = "curl --create-dirs" + " -O --output-dir " + folder + " "
 
         files = next(walk(folder), (None, None, []))[2]
@@ -176,9 +176,9 @@ class GUI:
         for id in gesture_ids:
             idx = str(id)
             img_file = json_file[idx] + ".png"
-            gif_file = json_file[idx] + ".gif"
+            #gif_file = json_file[idx] + ".gif"
             if download_imgs and (not img_file in files or redownload):
                 os.system(curl_commands + git_url + img_folder + img_file)
-            if download_gifs:
-                if not gif_file in files or redownload:
-                    os.system(curl_commands + git_url + gif_folder + gif_file)
+            #if download_gifs:
+              #  if not gif_file in files or redownload:
+                    # os.system(curl_commands + git_url + gif_folder + gif_file)
